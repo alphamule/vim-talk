@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>The VI Mindset</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+				    <h1>The VI Mindset</h1>
+                </section>
+                <section>
+                    <h1>Why even bother?</h2>
+                    <p class="fragment">So you can edit text:
+                    <ul>
+                        <li class="fragment">more quickly,</li>
+                        <li class="fragment">more efficiently,</li>
+                        <li class="fragment">and more precisely.</li>
+                        <li class="fragment">But most importantly, so you can more easily achieve flow</li>
+                    </ul>
+                </section>
+                <section>
+                    <section><h2>vi basic survival guide<h2></section>
+                    <section>
+                        <h3>starting vi</h3>
+                        <pre>
+                            <code data-trim>
+                                $ vi [filename] [...]
+                            </code>
+                        </pre>
+                    </section>
+                    <section id="cheat">
+                        <h3>using vi</h3>
+                        <img src="images/vi-vim-cheat-sheet.gif" style="width: 80%; height: auto" />
+                    </section>
+                    <section>
+                        <h3>quitting vi</h3>
+                        <pre>
+                            <code data-trim data-noescape>
+                                &lt;esc&gt;:q!&lt;enter&gt;
+                            </code>
+                        </pre>
+                        <img class="fragment" src="images/exiting-vim.jpg" style="width: 300px; height: auto" />
+                    </section>
+                    <section>
+                        <h3>Let's break it down</h3>
+                        <div style="text-align: left">
+                            <p class="fragment">&lt;esc&gt; &mdash; escape insert mode and go to normal mode</p>
+                            <p class="fragment">: &mdash; go to command line mode</p>
+                            <p class="fragment">q &mdash; quit command</p>
+                            <p class="fragment">! &mdash; modifier on quit to ignore changes</p>
+                            <p class="fragment">&lt;enter&gt; &mdash; <img class="fragment"src="images/picard.gif" /></p>
+                        </div>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h1>fundamental metaphor of vi</h1>
+                        <p class="fragment">vi's model is composed of modes, motions and operators</p>
+                    </section>
+                    <section>
+                        <h3>modes</h3>
+                        <p>In vi, you're always in a mode and you have different tools available to you depending on your mode</p>
+                    </section>
+                    <section>
+                        <p><img src="images/vi-modes.svg" /></p>
+                    </section>
+                    <section>
+                        <p><img src="images/complicated-mode-state-chart.svg" /></p>
+                    </section>
+                    <section>
+                        <h3>motions</h3>
+                        <p>Motions are how you get around the screen, in a separate mode from inserting text</p>
+                    </section>
+                    <section>
+                        <h3>operators</h3>
+                        <p>Operators are things you use to insert and modify text</p>
+                    </section>
+                    <section>
+                        <h3>composing motions with operators</h3>
+                        <div class="fragment">
+                            <img src="images/power-rangers.jpg" style="width: 300px; height: auto" />
+                            <img src="images/captain-planet.jpeg" style="width: 300px; height: auto" />
+                            <img src="images/voltron.jpeg" style="width: 300px; height: auto" />
+                        </div>
+                        <p>With these powers combined, you can do some amazing things</p>
+                    </section>
+                    <section>
+                        <h3>training wheels</h3>
+                        <pre>
+                            <div style="text-align:right">in ~/.vimrc</div>
+                            <code data-trim data-noescape>
+                                :noremap &lt;right&gt; &lt;nop&gt;
+                                :noremap &lt;left&gt; &lt;nop&gt;
+                                :noremap &lt;up&gt; &lt;nop&gt;
+                                :noremap &lt;down&gt; &lt;nop&gt;
+                                :inoremap &lt;right&gt; &lt;nop&gt;
+                                :inoremap &lt;left&gt; &lt;nop&gt;
+                                :inoremap &lt;up&gt; &lt;nop&gt;
+                                :inoremap &lt;down&gt; &lt;nop&gt;
+                            </code>
+                        </pre>
+                    </section>
+                </section>
+                <section>
+                    <section><h1>advanced topics and random features</h1></section>
+                    <section>%</section>
+                    <section># and *</section>
+                    <section>.</section>
+                    <section>visual mode</section>
+                    <section>piping to unix commands</section>
+                    <section>buffers and screen split</section>
+                    <section>vimdiff</section>
+                    <section>macros</section>
+                    <section>:registers</section>
+                    <section>using vi mode in other tools</section>
+                    <section>:help</section>
+                </section>
+                <section>
+                    <h1>Questions?</h1>
+                </section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
